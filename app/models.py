@@ -24,5 +24,5 @@ class Human(models.Model):
     rightLeg = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     isAttack = models.BooleanField(default=False)
-
+    total_damage = models.IntegerField(default=0)
 

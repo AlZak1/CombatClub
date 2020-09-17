@@ -7,12 +7,10 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from rest_framework import status
 from rest_framework.authentication import BasicAuthentication
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework.generics import RetrieveAPIView, CreateAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
 from .models import Posts, Human, User
 from .serializers import PostSerializer, HumanSerializer, UserSerializer
@@ -32,22 +30,24 @@ class PostView(RetrieveAPIView):
 
 
 class HumanView(CreateAPIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = HumanSerializer
     queryset = Human.objects.all()
     human_service = HumanService([])
 
     def post(self, request, *args, **kwargs):
         username = request.user.id
-        a = request.data
-        a["user"] = username
-        serializer = HumanSerializer(data=a)
+        human = request.data
+        human["user"] = username
+        self.human_service.append_human_list(human)
+        total_score = self.human_service.process_human_list()
+        print(self.human_service.process_human_list())
+        human["total_damage"] = total_score
+        print(human)
+        serializer = HumanSerializer(data=human)
         if serializer.is_valid():
-            human = serializer.data
-            self.human_service.append_human_list(human)
-            total_score = self.human_service.process_human_list()
-            print(total_score)
-        return Response(total_score)
+            pass
+        return Response(serializer.data)
 
     def play(self, request):
         pass
