@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="">
+    <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="new commit">
+      <change afterPath="$PROJECT_DIR$/app/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drestapi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/drestapi/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drestapi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/drestapi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +39,45 @@
       <option name="presentableId" value="Default" />
       <updated>1599134366759</updated>
     </task>
+    <task id="LOCAL-00001" summary="new commit">
+      <created>1600076068716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600076068716</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="new commit" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1600076139960">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1600076139960" />
     <state x="321" y="242" key="SettingsEditor" timestamp="1599827082919">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="321" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1599827082919" />
-    <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1599332075615">
+    <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1600155788658">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1599332075615" />
+    <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1600155788658" />
   </component>
 </project>

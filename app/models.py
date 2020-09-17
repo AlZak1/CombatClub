@@ -23,5 +23,6 @@ class Human(models.Model):
     leftLeg = models.BooleanField(default=False)
     rightLeg = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    isAttack = models.BooleanField(default=False)
 
 
