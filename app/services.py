@@ -3,69 +3,90 @@ class HumanService:
     def __init__(self, human_list):
         self.human_list = human_list
 
+    def get_list(self):
+        return self.human_list
+
     def append_human_list(self, human):
         self.human_list.append(human)
 
     def process_human_list(self):
-        score_1 = 0
-        score_2 = 0
-        u = 0
-        l_v_1 = []
-        l_v_2 = []
-        l_v_3 = []
-        l_v_4 = []
-
+        obj = {}
+        user1_attack = []
+        user1_defense = []
+        user2_attack = []
+        user2_defense = []
+        counter_1 = 0
+        counter_2 = 0
+        damage_by_user_1 = 0
+        damage_by_user_2 = 0
         if len(self.human_list) >= 4:
-            human_01 = [x for x in self.human_list if x['isAttack'] is True and x['user'] == 1]
-            human_1 = human_01[0]
-            for i in human_1.values():
-                l_v_1.append(i)
-            human_02 = [x for x in self.human_list if x['isAttack'] is False and x['user'] == 2]
-            human_2 = human_02[0]
-            for i in human_2.values():
-                l_v_2.append(i)
-            print(l_v_1)
-            print(l_v_2)
-            for i in range(0, 6):
-                if l_v_1[i] == l_v_2[i]:
-                    u += 1
-                    continue
-                elif l_v_1[i] and not l_v_2[i]:
-                    if u == 0:
-                        score_1 += 10
-                        u += 1
-                    elif u == 1:
-                        score_1 += 7
-                        u += 1
-                    else:
-                        score_1 += 5
-                u += 1
-            print('total damage' + ' ' + str(score_1) + '\n')
+            # user1_attack_list = [x for x in self.human_list if x['isAttack'] is True and x['user'] == 1]
+            # user1_attack_copy = user1_attack_list.copy()
+            # user1_attack_list.clear()
+            # user1_attack = user1_attack_copy[0]
+            # print('user1attack', user1_attack_copy)
+            # print('czcd', user1_attack)
+            for i in self.human_list:
+                if i['isAttack'] is True and i['user'] == 1:
+                    for k in i.values():
+                        user1_attack.append(k)
+                elif i['isAttack'] is False and i['user'] == 2:
+                    for k in i.values():
+                        user2_defense.append(k)
+                elif i['isAttack'] is True and i['user'] == 2:
+                    for k in i.values():
+                        user2_attack.append(k)
+                elif i['isAttack'] is False and i['user'] == 1:
+                    for k in i.values():
+                        user1_defense.append(k)
 
-            human_03 = [x for x in self.human_list if x['isAttack'] is False and x['user'] == 1]
-            human_3 = human_03[0]
-            for i in human_3.values():
-                l_v_3.append(i)
-            human_04 = [x for x in self.human_list if x['isAttack'] is True and x['user'] == 2]
-            human_4 = human_04[0]
-            for i in human_4.values():
-                l_v_4.append(i)
-            print(l_v_3)
-            print(l_v_4)
-            for i in range(0, 6):
-                if l_v_3[i] == l_v_4[i]:
-                    u += 1
-                    continue
-                elif l_v_3[i] and not l_v_4[i]:
-                    if u == 0:
-                        score_2 += 10
-                        u += 1
-                    elif u == 1:
-                        score_2 += 7
-                        u += 1
-                    else:
-                        score_2 += 5
-                u += 1
-            print('total damage second' + ' ' + str(score_2) + '\n')
-            self.human_list.clear()
+            print('user1attack', user1_attack)
+            print('user2defense', user2_defense)
+            print('user2attack', user2_attack)
+            print('user1defense', user1_defense)
 
+            for i in range(0, 6):
+                if user1_attack[i] == user2_defense[i]:
+                    counter_1 += 1
+                    continue
+                elif user1_attack[i] and not user2_defense[i]:
+                    if counter_1 == 0:
+                        damage_by_user_1 += 10
+                        counter_1 += 1
+                    elif counter_1 == 1:
+                        damage_by_user_1 += 7
+                        counter_1 += 1
+                    else:
+                        damage_by_user_1 += 5
+                counter_1 += 1
+            print('total damage by 1st user' + ' ' + str(damage_by_user_1) + '\n')
+
+            for i in self.human_list:
+                if i['user'] == 1:
+                    i['total_damage'] = damage_by_user_1
+
+            for i in range(0, 6):
+                if user2_attack[i] == user1_defense[i]:
+                    counter_2 += 1
+                    continue
+                elif user2_attack[i] and not user1_defense[i]:
+                    if counter_2 == 0:
+                        damage_by_user_2 += 10
+                        counter_2 += 1
+                    elif counter_2 == 1:
+                        damage_by_user_2 += 7
+                        counter_2 += 1
+                    else:
+                        damage_by_user_2 += 5
+                counter_2 += 1
+            print('total damage by 2st user' + ' ' + str(damage_by_user_2) + '\n')
+
+            for i in self.human_list:
+                if i['user'] == 2:
+                    i['total_damage'] = damage_by_user_2
+            print(self.human_list)
+
+            obj = {'damage1': damage_by_user_1,
+                   'damage2': damage_by_user_2}
+
+        return obj

@@ -34,20 +34,46 @@ class HumanView(CreateAPIView):
     serializer_class = HumanSerializer
     queryset = Human.objects.all()
     human_service = HumanService([])
+    u = 0
 
     def post(self, request, *args, **kwargs):
         username = request.user.id
         human = request.data
         human["user"] = username
         self.human_service.append_human_list(human)
+        # total_score = self.human_service.process_human_list()
+        # print('total score', total_score)
         total_score = self.human_service.process_human_list()
-        print(self.human_service.process_human_list())
-        human["total_damage"] = total_score
-        print(human)
-        serializer = HumanSerializer(data=human)
+        print('total_score', total_score)
+        response_data = {'user': username, 'total_damage': None}
+        print(response_data)
+        # if username == 1:
+        #     response_data['total_damage'] = total_score['damage1']
+        # else:
+        #     response_data['total_damage'] = total_score['damage2']
+        print(response_data)
+        serializer = HumanSerializer(data=response_data)
         if serializer.is_valid():
+            print('serializer', serializer.data)
             pass
         return Response(serializer.data)
+
+    def get(self, request, *args, **kwargs):
+        username = request.user.id
+        human = {'user': username, 'total_damage': None}
+        total_score = self.human_service.process_human_list()
+        if len(total_score) == 2:
+            if username == 1:
+                human['total_damage'] = total_score['damage1']
+            else:
+                human['total_damage'] = total_score['damage2']
+        print('edfsd', total_score)
+        # if username == 1:
+        #     human['total_damage'] = total_score['damage1']
+        # else:
+        #     human['total_damage'] = total_score['damage2']
+        print('Данные отсылаемые клиенту по GET:', human)
+        return Response(human)
 
     def play(self, request):
         pass

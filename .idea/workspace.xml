@@ -53,7 +53,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600331354936</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new commit">
+      <created>1600348434630</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600348434630</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -74,18 +81,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="new commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1600331354646">
+    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1600348434439">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1600331354646" />
+    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1600348434439" />
     <state x="321" y="242" key="SettingsEditor" timestamp="1600332109077">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="321" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600332109077" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1600331359165">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1600348436926">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600331359165" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600348436926" />
+    <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
+      <screen x="0" y="23" width="1680" height="980" />
+    </state>
+    <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.980@0.23.1680.980" timestamp="1600355588008" />
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1600155788658">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
