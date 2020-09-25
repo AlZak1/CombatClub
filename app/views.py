@@ -116,3 +116,17 @@ class HumanStatisticsView(CreateAPIView):
         queryset = self.get_queryset()
         serializer = HumanStatisticsSerializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class LoadPageView(APIView):
+    serializer_class = HumanSerializer
+
+    def get(self, request):
+        username = request.user.id
+        human_1 = Human.objects.get(user=1)
+        human_object = {'user': username, 'total_damage': human_1.total_damage, 'enemy_damage': human_1.enemy_damage}
+        print('human_1', human_1)
+        serializer = HumanSerializer(data=human_object)
+        if serializer.is_valid():
+            pass
+        return Response(serializer.data)
