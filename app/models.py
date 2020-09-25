@@ -25,4 +25,6 @@ class Human(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     isAttack = models.BooleanField(default=False)
     total_damage = models.IntegerField(default=None)
-
+    enemy_damage = models.IntegerField(default=None)
+    current_damage = models.IntegerField(default=None)
+    current_enemy_damage = models.IntegerField(default=None)

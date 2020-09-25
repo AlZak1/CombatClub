@@ -3,9 +3,6 @@ class HumanService:
     def __init__(self, human_list):
         self.human_list = human_list
 
-    def get_list(self):
-        return self.human_list
-
     def append_human_list(self, human):
         self.human_list.append(human)
 
@@ -19,6 +16,7 @@ class HumanService:
         counter_2 = 0
         damage_by_user_1 = 0
         damage_by_user_2 = 0
+
         if len(self.human_list) >= 4:
             # user1_attack_list = [x for x in self.human_list if x['isAttack'] is True and x['user'] == 1]
             # user1_attack_copy = user1_attack_list.copy()
@@ -26,6 +24,8 @@ class HumanService:
             # user1_attack = user1_attack_copy[0]
             # print('user1attack', user1_attack_copy)
             # print('czcd', user1_attack)
+            # print('human_list_copy_2', human_list_copy)
+            # print('human_list_2', self.human_list)
             for i in self.human_list:
                 if i['isAttack'] is True and i['user'] == 1:
                     for k in i.values():
@@ -45,7 +45,7 @@ class HumanService:
             print('user2attack', user2_attack)
             print('user1defense', user1_defense)
 
-            for i in range(0, 6):
+            for i in range(1, 7):
                 if user1_attack[i] == user2_defense[i]:
                     counter_1 += 1
                     continue
@@ -64,8 +64,10 @@ class HumanService:
             for i in self.human_list:
                 if i['user'] == 1:
                     i['total_damage'] = damage_by_user_1
+                    i['enemy_damage'] = damage_by_user_2
+                    i['current_damage'] = damage_by_user_1
 
-            for i in range(0, 6):
+            for i in range(1, 7):
                 if user2_attack[i] == user1_defense[i]:
                     counter_2 += 1
                     continue
@@ -84,9 +86,13 @@ class HumanService:
             for i in self.human_list:
                 if i['user'] == 2:
                     i['total_damage'] = damage_by_user_2
-            print(self.human_list)
+                    i['enemy_damage'] = damage_by_user_1
+                    i['current_damage'] = damage_by_user_2
 
             obj = {'damage1': damage_by_user_1,
                    'damage2': damage_by_user_2}
+
+        # print('human_list', self.human_list)
+        # print('human_list_copy', human_list_copy)
 
         return obj

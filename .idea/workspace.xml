@@ -60,7 +60,28 @@
       <option name="project" value="LOCAL" />
       <updated>1600348434630</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="new commit">
+      <created>1600766771675</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600766771675</updated>
+    </task>
+    <task id="LOCAL-00005" summary="new commit">
+      <created>1600766786964</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600766786964</updated>
+    </task>
+    <task id="LOCAL-00006" summary="new commit">
+      <created>1600766837807</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1600766837807</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,18 +102,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="new commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1600766786851">
+    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1600766837696">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1600766786851" />
+    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1600766837696" />
     <state x="321" y="242" key="SettingsEditor" timestamp="1600332109077">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="321" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600332109077" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1600766793623">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1600766839425">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600766793623" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600766839425" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
       <screen x="0" y="23" width="1680" height="980" />
     </state>
