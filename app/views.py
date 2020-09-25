@@ -1,19 +1,11 @@
 from .services import HumanService
-import json
-from collections import namedtuple
-import jwt
-from django.contrib.auth import user_logged_in
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
-from rest_framework import status
-from rest_framework.authentication import BasicAuthentication
+
 from rest_framework.generics import RetrieveAPIView, CreateAPIView
-from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Posts, Human, User
-from .serializers import PostSerializer, HumanSerializer, UserSerializer
+from .models import Posts, Human, HumanStatistics
+from .serializers import PostSerializer, HumanSerializer, HumanStatisticsSerializer
 
 
 # Create your views here.
@@ -31,7 +23,7 @@ class PostView(RetrieveAPIView):
 
 class HumanView(CreateAPIView):
     # permission_classes = (IsAuthenticated,)
-    serializer_class = HumanSerializer
+    serializer_class = HumanSerializer, HumanStatisticsSerializer
     queryset = Human.objects.all()
     human_service = HumanService([])
 
@@ -39,6 +31,12 @@ class HumanView(CreateAPIView):
         username = request.user.id
         human = request.data
         human["user"] = username
+        human_statistics = request.data
+        human_statistics['user'] = username
+        serializer = HumanStatisticsSerializer(data=human_statistics)
+        if serializer.is_valid():
+            serializer.save()
+            print('dsfsdfdfgdfxcv123456', serializer.data)
         self.human_service.append_human_list(human)
         total_score = self.human_service.process_human_list()
         print('total_score', total_score)
@@ -52,6 +50,7 @@ class HumanView(CreateAPIView):
                 response_data['current_damage'] = total_score['damage1']
                 response_data['current_enemy_damage'] = total_score['damage2']
                 human_1.total_damage = response_data['total_damage']
+                print('shit', type(human_1))
                 human_1.save()
                 human_1.enemy_damage = response_data['enemy_damage']
                 human_1.save()
@@ -107,16 +106,13 @@ class HumanView(CreateAPIView):
             pass
         return Response(human)
 
-    def play(self, request):
-        pass
 
+class HumanStatisticsView(CreateAPIView):
+    # permission_classes = (IsAuthenticated,)
+    serializer_class = HumanStatisticsSerializer
+    queryset = HumanStatistics.objects.all()
 
-class CreateUserAPIView(APIView):
-    # Allow any user (authenticated or not) to access this url
-    permission_classes = (AllowAny,)
-
-    def post(self, request):
-        user = request.data
-        serializer = UserSerializer(data=user)
-        serializer.is_valid(raise_exception=True)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    def get(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = HumanStatisticsSerializer(queryset, many=True)
+        return Response(serializer.data)

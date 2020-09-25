@@ -61,11 +61,11 @@ class HumanService:
                 counter_1 += 1
             print('total damage by 1st user' + ' ' + str(damage_by_user_1) + '\n')
 
-            for i in self.human_list:
-                if i['user'] == 1:
-                    i['total_damage'] = damage_by_user_1
-                    i['enemy_damage'] = damage_by_user_2
-                    i['current_damage'] = damage_by_user_1
+            # for i in self.human_list:
+            #     if i['user'] == 1:
+            #         i['total_damage'] = damage_by_user_1
+            #         i['enemy_damage'] = damage_by_user_2
+            #         i['current_damage'] = damage_by_user_1
 
             for i in range(1, 7):
                 if user2_attack[i] == user1_defense[i]:
@@ -83,11 +83,11 @@ class HumanService:
                 counter_2 += 1
             print('total damage by 2st user' + ' ' + str(damage_by_user_2) + '\n')
 
-            for i in self.human_list:
-                if i['user'] == 2:
-                    i['total_damage'] = damage_by_user_2
-                    i['enemy_damage'] = damage_by_user_1
-                    i['current_damage'] = damage_by_user_2
+            # for i in self.human_list:
+            #     if i['user'] == 2:
+            #         i['total_damage'] = damage_by_user_2
+            #         i['enemy_damage'] = damage_by_user_1
+            #         i['current_damage'] = damage_by_user_2
 
             obj = {'damage1': damage_by_user_1,
                    'damage2': damage_by_user_2}

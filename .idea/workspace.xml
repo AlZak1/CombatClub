@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drestapi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/drestapi/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600766837807</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new commit">
+      <created>1601024735633</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601024735634</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,18 +113,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="new commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1600766837696">
+    <state x="464" y="127" key="CommitChangelistDialog2" timestamp="1601024735478">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1600766837696" />
+    <state x="464" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1601024735478" />
     <state x="321" y="242" key="SettingsEditor" timestamp="1600332109077">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="321" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1600332109077" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1600766839425">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1601024739136">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1600766839425" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1601024739136" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
       <screen x="0" y="23" width="1680" height="980" />
     </state>

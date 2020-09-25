@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import Posts, User
-from .models import Human
+from .models import Posts
+from .models import Human, HumanStatistics
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -15,11 +15,8 @@ class HumanSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class UserSerializer(serializers.ModelSerializer):
-    date_joined = serializers.ReadOnlyField()
+class HumanStatisticsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HumanStatistics
+        fields = '__all__'
 
-    class Meta(object):
-        model = User
-        fields = ('id', 'username', 'email', 'first_name', 'last_name',
-                  'date_joined', 'password')
-        extra_kwargs = {'password': {'write_only': True}}
