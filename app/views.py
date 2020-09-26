@@ -29,8 +29,7 @@ class HumanView(CreateAPIView):
         human_statistics['user'] = username
         serializer = HumanStatisticsSerializer(data=human_statistics)
         if serializer.is_valid():
-            # serializer.save()
-            pass
+            serializer.save()
         self.human_service.append_human_list(human)
         total_score = self.human_service.process_human_list()
         print('total_score', total_score)
