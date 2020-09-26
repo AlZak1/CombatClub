@@ -10,5 +10,5 @@ urlpatterns = [
     path('posts/', PostView.as_view(), name='post_view'),
     path('human/', HumanView.as_view(), name='human_view'),
     path('statistics/', HumanStatisticsView.as_view(), name='human_statistics_view'),
-    path('loadpage/', LoadPageView.as_view(), name='loadpage')
+    path('loadpage/', LoadPageView.as_view(), name='loadpage'),
 ]

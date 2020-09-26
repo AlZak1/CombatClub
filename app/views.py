@@ -35,7 +35,7 @@ class HumanView(CreateAPIView):
         human_statistics['user'] = username
         serializer = HumanStatisticsSerializer(data=human_statistics)
         if serializer.is_valid():
-            serializer.save()
+            # serializer.save()
             print('dsfsdfdfgdfxcv123456', serializer.data)
         self.human_service.append_human_list(human)
         total_score = self.human_service.process_human_list()
@@ -117,6 +117,19 @@ class HumanStatisticsView(CreateAPIView):
         serializer = HumanStatisticsSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    def post(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        data_to_filter = request.data
+        data_object = {'isAttack': None, 'fromDate': None, 'toDate': None}
+        if data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
+            queryset = HumanStatistics.objects.all()
+        elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
+            queryset = HumanStatistics.objects.filter(isAttack=False)
+        elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
+            queryset = HumanStatistics.objects.filter(isAttack=True)
+        serializer = HumanStatisticsSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 
 class LoadPageView(APIView):
     serializer_class = HumanSerializer
@@ -124,9 +137,24 @@ class LoadPageView(APIView):
     def get(self, request):
         username = request.user.id
         human_1 = Human.objects.get(user=1)
-        human_object = {'user': username, 'total_damage': human_1.total_damage, 'enemy_damage': human_1.enemy_damage}
-        print('human_1', human_1)
+        human_2 = Human.objects.get(user=2)
+        human_object = {'user': username, 'total_damage': None, 'enemy_damage': None}
+        if username == 1:
+            human_object['total_damage'] = human_1.total_damage
+            human_object['enemy_damage'] = human_1.enemy_damage
+        else:
+            human_object['total_damage'] = human_2.total_damage
+            human_object['enemy_damage'] = human_2.enemy_damage
         serializer = HumanSerializer(data=human_object)
         if serializer.is_valid():
             pass
         return Response(serializer.data)
+
+
+# class AttackView(CreateAPIView):
+#     serializer_class = HumanStatisticsSerializer
+#
+#     def get(self, request):
+#        attack_true = HumanStatistics.objects.filter(isAttack=True)
+#        attack_false = HumanStatistics.objects.filter(isAttack=False)
+#        if
