@@ -18,14 +18,6 @@ class HumanService:
         damage_by_user_2 = 0
 
         if len(self.human_list) >= 4:
-            # user1_attack_list = [x for x in self.human_list if x['isAttack'] is True and x['user'] == 1]
-            # user1_attack_copy = user1_attack_list.copy()
-            # user1_attack_list.clear()
-            # user1_attack = user1_attack_copy[0]
-            # print('user1attack', user1_attack_copy)
-            # print('czcd', user1_attack)
-            # print('human_list_copy_2', human_list_copy)
-            # print('human_list_2', self.human_list)
             for i in self.human_list:
                 if i['isAttack'] is True and i['user'] == 1:
                     for k in i.values():

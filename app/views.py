@@ -1,30 +1,22 @@
 from time import timezone
 
+from rest_framework.permissions import IsAuthenticated
+
 from .services import HumanService
 
-from rest_framework.generics import RetrieveAPIView, CreateAPIView
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Posts, Human, HumanStatistics
-from .serializers import PostSerializer, HumanSerializer, HumanStatisticsSerializer
+from .models import Human, HumanStatistics
+from .serializers import HumanSerializer, HumanStatisticsSerializer
 import datetime
 
 # Create your views here.
 
 
-class PostView(RetrieveAPIView):
-    # permission_classes = (IsAuthenticated,)
-    queryset = Posts.objects.all()
-
-    def get(self, request, *args, **kwargs):
-        queryset = self.get_queryset()
-        serializer = PostSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-
 class HumanView(CreateAPIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = HumanSerializer, HumanStatisticsSerializer
     queryset = Human.objects.all()
     human_service = HumanService([])
@@ -38,7 +30,7 @@ class HumanView(CreateAPIView):
         serializer = HumanStatisticsSerializer(data=human_statistics)
         if serializer.is_valid():
             # serializer.save()
-            print('dsfsdfdfgdfxcv123456', serializer.data)
+            pass
         self.human_service.append_human_list(human)
         total_score = self.human_service.process_human_list()
         print('total_score', total_score)
@@ -52,7 +44,6 @@ class HumanView(CreateAPIView):
                 response_data['current_damage'] = total_score['damage1']
                 response_data['current_enemy_damage'] = total_score['damage2']
                 human_1.total_damage = response_data['total_damage']
-                print('shit', type(human_1))
                 human_1.save()
                 human_1.enemy_damage = response_data['enemy_damage']
                 human_1.save()
@@ -110,7 +101,7 @@ class HumanView(CreateAPIView):
 
 
 class HumanStatisticsView(CreateAPIView):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = HumanStatisticsSerializer
     queryset = HumanStatistics.objects.all()
 
@@ -122,7 +113,6 @@ class HumanStatisticsView(CreateAPIView):
     def post(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         data_to_filter = request.data
-        data_object = {}
         if data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.all()
         elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
@@ -131,7 +121,12 @@ class HumanStatisticsView(CreateAPIView):
             queryset = HumanStatistics.objects.filter(isAttack=True)
         elif data_to_filter['isAttack'] is None and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
             queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
-            print(queryset)
+        elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(isAttack=True, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(isAttack=False, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        elif data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
         serializer = HumanStatisticsSerializer(queryset, many=True)
 
         return Response(serializer.data)
@@ -155,12 +150,3 @@ class LoadPageView(APIView):
         if serializer.is_valid():
             pass
         return Response(serializer.data)
-
-
-# class AttackView(CreateAPIView):
-#     serializer_class = HumanStatisticsSerializer
-#
-#     def get(self, request):
-#        attack_true = HumanStatistics.objects.filter(isAttack=True)
-#        attack_false = HumanStatistics.objects.filter(isAttack=False)
-#        if
