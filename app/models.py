@@ -40,3 +40,4 @@ class HumanStatistics(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     isAttack = models.BooleanField(default=False)
+    date_without_time = models.DateField(auto_now_add=True)

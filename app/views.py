@@ -1,3 +1,5 @@
+from time import timezone
+
 from .services import HumanService
 
 from rest_framework.generics import RetrieveAPIView, CreateAPIView
@@ -6,7 +8,7 @@ from rest_framework.views import APIView
 
 from .models import Posts, Human, HumanStatistics
 from .serializers import PostSerializer, HumanSerializer, HumanStatisticsSerializer
-
+import datetime
 
 # Create your views here.
 
@@ -120,14 +122,18 @@ class HumanStatisticsView(CreateAPIView):
     def post(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         data_to_filter = request.data
-        data_object = {'isAttack': None, 'fromDate': None, 'toDate': None}
+        data_object = {}
         if data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.all()
         elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.filter(isAttack=False)
         elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.filter(isAttack=True)
+        elif data_to_filter['isAttack'] is None and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+            print(queryset)
         serializer = HumanStatisticsSerializer(queryset, many=True)
+
         return Response(serializer.data)
 
 
