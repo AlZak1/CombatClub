@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Human, HumanStatistics
+from .models import Human, HumanStatistics, Room
 
 # Register your models here.
 
 admin.site.register(Human)
 admin.site.register(HumanStatistics)
+admin.site.register(Room)

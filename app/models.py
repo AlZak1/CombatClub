@@ -32,3 +32,10 @@ class HumanStatistics(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     isAttack = models.BooleanField(default=False)
     date_without_time = models.DateField(auto_now_add=True)
+
+
+class Room(models.Model):
+    player_one = models.IntegerField(default=None)
+    player_two = models.IntegerField(default=None)
+
+
