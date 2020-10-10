@@ -12,12 +12,14 @@ from .models import Human, HumanStatistics, Room
 from .serializers import HumanSerializer, HumanStatisticsSerializer, RoomsSerializer
 import datetime
 
+
 # Create your views here.
 
 
 def turn(request, total_score):
     username = request.user.id
-    response_data = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None, 'current_enemy_damage': None}
+    response_data = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
+                     'current_enemy_damage': None}
     human_1 = Human.objects.get(user=1)
     human_2 = Human.objects.get(user=2)
     if username == 1:
@@ -61,7 +63,8 @@ class HumanView(CreateAPIView):
         self.human_service.append_human_list(human)
         total_score = self.human_service.process_human_list()
         print('total_score', total_score)
-        response_data = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None, 'current_enemy_damage': None}
+        response_data = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
+                         'current_enemy_damage': None}
         # human_1 = Human.objects.get(user=1)
         # human_2 = Human.objects.get(user=2)
         if len(total_score) == 2:
@@ -95,7 +98,8 @@ class HumanView(CreateAPIView):
     def get(self, request, *args, **kwargs):
 
         username = request.user.id
-        human = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None, 'current_enemy_damage': None}
+        human = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
+                 'current_enemy_damage': None}
         total_score = self.human_service.process_human_list()
         # human_1 = Human.objects.get(user=1)
         # human_2 = Human.objects.get(user=2)
@@ -131,7 +135,7 @@ class HumanView(CreateAPIView):
 
 
 class HumanStatisticsView(CreateAPIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = HumanStatisticsSerializer
     queryset = HumanStatistics.objects.all()
 
@@ -193,3 +197,10 @@ class RoomsView(APIView):
         queryset = self.get_queryset()
         serializer = RoomsSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    # def post(self, request):
+    #     data = request.data
+    #     data_id = data['id']
+    #     room = Room.objects.get(id=data_id)
+    #
+    #     return Response(serializer.data)

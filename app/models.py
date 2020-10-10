@@ -35,7 +35,7 @@ class HumanStatistics(models.Model):
 
 
 class Room(models.Model):
-    player_one = models.IntegerField(default=None)
-    player_two = models.IntegerField(default=None)
+    player_one = models.IntegerField(null=True)
+    player_two = models.IntegerField(null=True)
 
 
