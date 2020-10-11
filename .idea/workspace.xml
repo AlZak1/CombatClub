@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="new commit">
+    <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -144,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602243901403</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="new commit">
+      <created>1602324512144</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1602324512144</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,10 +173,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="new commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602244850051">
+    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602338777654">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.973@0.23.1680.973" timestamp="1602338777654" />
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602324511953">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602244850051" />
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602324511953" />
     <state x="642" y="243" key="RollbackChangesDialog" timestamp="1602243778289">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -177,17 +189,33 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="510" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601041499979" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602244972656">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602324518325">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602244972656" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602324518325" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
       <screen x="0" y="23" width="1680" height="980" />
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1680.980@0.23.1680.980" timestamp="1600355588008" />
-    <state x="517" y="357" key="com.intellij.ide.util.TipDialog" timestamp="1602144213421">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="517" y="354" key="com.intellij.ide.util.TipDialog" timestamp="1602396223264">
+      <screen x="0" y="23" width="1680" height="967" />
     </state>
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602144213421" />
+    <state x="517" y="354" key="com.intellij.ide.util.TipDialog/0.23.1680.967@0.23.1680.967" timestamp="1602396223264" />
+    <state x="517" y="354" key="com.intellij.ide.util.TipDialog/0.23.1680.973@0.23.1680.973" timestamp="1602348682810" />
+    <state x="505" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1602348835314">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state x="505" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1602348835314" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/services.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

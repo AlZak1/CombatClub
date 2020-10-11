@@ -19,6 +19,7 @@ class Human(models.Model):
     enemy_damage = models.IntegerField(default=None)
     current_damage = models.IntegerField(default=None)
     current_enemy_damage = models.IntegerField(default=None)
+    roomId = models.IntegerField(default=None, blank=True, null=True)
 
 
 class HumanStatistics(models.Model):
@@ -35,7 +36,7 @@ class HumanStatistics(models.Model):
 
 
 class Room(models.Model):
-    player_one = models.IntegerField(null=True)
-    player_two = models.IntegerField(null=True)
+    player_one = models.IntegerField(null=True, blank=True)
+    player_two = models.IntegerField(null=True, blank=True)
 
 

@@ -1,10 +1,14 @@
 class HumanService:
 
-    def __init__(self, human_list):
+    def __init__(self, human_list, room_list):
         self.human_list = human_list
+        self.room_list = room_list
 
     def append_human_list(self, human):
         self.human_list.append(human)
+
+    def append_room_list(self, room):
+        self.room_list.append(room)
 
     def process_human_list(self):
         obj = {}
@@ -16,19 +20,21 @@ class HumanService:
         counter_2 = 0
         damage_by_user_1 = 0
         damage_by_user_2 = 0
+        print('room', self.room_list)
 
         if len(self.human_list) >= 4:
+            room = self.room_list[0]
             for i in self.human_list:
-                if i['isAttack'] is True and i['user'] == 1:
+                if i['isAttack'] is True and i['user'] == room.player_one:
                     for k in i.values():
                         user1_attack.append(k)
-                elif i['isAttack'] is False and i['user'] == 2:
+                elif i['isAttack'] is False and i['user'] == room.player_two:
                     for k in i.values():
                         user2_defense.append(k)
-                elif i['isAttack'] is True and i['user'] == 2:
+                elif i['isAttack'] is True and i['user'] == room.player_two:
                     for k in i.values():
                         user2_attack.append(k)
-                elif i['isAttack'] is False and i['user'] == 1:
+                elif i['isAttack'] is False and i['user'] == room.player_one:
                     for k in i.values():
                         user1_defense.append(k)
 
@@ -37,7 +43,7 @@ class HumanService:
             print('user2attack', user2_attack)
             print('user1defense', user1_defense)
 
-            for i in range(1, 7):
+            for i in range(2, 8):
                 if user1_attack[i] == user2_defense[i]:
                     counter_1 += 1
                     continue
@@ -59,7 +65,7 @@ class HumanService:
             #         i['enemy_damage'] = damage_by_user_2
             #         i['current_damage'] = damage_by_user_1
 
-            for i in range(1, 7):
+            for i in range(2, 8):
                 if user2_attack[i] == user1_defense[i]:
                     counter_2 += 1
                     continue
