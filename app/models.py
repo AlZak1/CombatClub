@@ -20,19 +20,8 @@ class Human(models.Model):
     current_damage = models.IntegerField(default=False)
     current_enemy_damage = models.IntegerField(default=False)
     roomId = models.IntegerField(default=None, blank=True, null=True)
-
-
-class HumanStatistics(models.Model):
-    head = models.BooleanField(default=False)
-    body = models.BooleanField(default=False)
-    leftHand = models.BooleanField(default=False)
-    rightHand = models.BooleanField(default=False)
-    leftLeg = models.BooleanField(default=False)
-    rightLeg = models.BooleanField(default=False)
-    date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    isAttack = models.BooleanField(default=False)
-    date_without_time = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(null=True, blank=True)
+    date_without_time = models.DateField(null=True, blank=True)
 
 
 class Room(models.Model):

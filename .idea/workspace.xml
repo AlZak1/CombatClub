@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
@@ -186,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602492947076</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="new commit">
+      <created>1602503421256</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1602503421256</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,10 +220,10 @@
       <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.973@0.23.1680.973" timestamp="1602338777654" />
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602492946938">
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602503421104">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602492946938" />
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602503421104" />
     <state x="642" y="243" key="RollbackChangesDialog" timestamp="1602243778289">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -223,10 +232,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="510" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601041499979" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602492951651">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602503425326">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602492951651" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602503425326" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
       <screen x="0" y="23" width="1680" height="980" />
     </state>
@@ -237,10 +246,10 @@
     <state x="517" y="357" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602144213421" />
     <state x="517" y="354" key="com.intellij.ide.util.TipDialog/0.23.1680.967@0.23.1680.967" timestamp="1602396223264" />
     <state x="517" y="354" key="com.intellij.ide.util.TipDialog/0.23.1680.973@0.23.1680.973" timestamp="1602348682810" />
-    <state x="505" y="231" width="670" height="730" key="search.everywhere.popup" timestamp="1602494693933">
+    <state x="505" y="231" width="670" height="730" key="search.everywhere.popup" timestamp="1602505828765">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="231" width="670" height="730" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602494693933" />
+    <state x="505" y="231" width="670" height="730" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602505828765" />
     <state x="505" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1602348835314" />
   </component>
 </project>

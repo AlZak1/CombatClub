@@ -1,16 +1,10 @@
 from rest_framework import serializers
-from .models import Human, HumanStatistics, Room
+from .models import Human, Room
 
 
 class HumanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Human
-        fields = '__all__'
-
-
-class HumanStatisticsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = HumanStatistics
         fields = '__all__'
 
 

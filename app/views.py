@@ -8,8 +8,8 @@ from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Human, HumanStatistics, Room
-from .serializers import HumanSerializer, HumanStatisticsSerializer, RoomsSerializer
+from .models import Human, Room
+from .serializers import HumanSerializer, RoomsSerializer
 import datetime
 
 
@@ -18,7 +18,7 @@ import datetime
 
 class HumanView(CreateAPIView):
     # permission_classes = (IsAuthenticated,)
-    serializer_class = HumanSerializer, HumanStatisticsSerializer
+    serializer_class = HumanSerializer
     queryset = Human.objects.all()
     human_service = HumanService([], [])
 
@@ -146,32 +146,32 @@ def player_two_turn(request, total_score, human_2):
 
 class HumanStatisticsView(CreateAPIView):
     # permission_classes = (IsAuthenticated,)
-    serializer_class = HumanStatisticsSerializer
-    queryset = HumanStatistics.objects.all()
+    serializer_class = HumanSerializer
+    queryset = Human.objects.all()
 
     def get(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-        serializer = HumanStatisticsSerializer(queryset, many=True)
+        serializer = HumanSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         data_to_filter = request.data
         if data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
-            queryset = HumanStatistics.objects.all()
+            queryset = Human.objects.all()
         elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
-            queryset = HumanStatistics.objects.filter(isAttack=False)
+            queryset = Human.objects.filter(isAttack=False)
         elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
-            queryset = HumanStatistics.objects.filter(isAttack=True)
+            queryset = Human.objects.filter(isAttack=True)
         elif data_to_filter['isAttack'] is None and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+            queryset = Human.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
         elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(isAttack=True, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+            queryset = Human.objects.filter(isAttack=True, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
         elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(isAttack=False, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+            queryset = Human.objects.filter(isAttack=False, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
         elif data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
-        serializer = HumanStatisticsSerializer(queryset, many=True)
+            queryset = Human.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        serializer = HumanSerializer(queryset, many=True)
 
         return Response(serializer.data)
 
@@ -185,7 +185,6 @@ class LoadPageView(APIView):
         room_id = data['Data']
         current_room = Room.objects.get(id=room_id)
         human_1 = Human.objects.filter(user=current_room.player_one).first()
-        print('fsdfsdfsdf', human_1)
         human_2 = Human.objects.filter(user=current_room.player_two).first()
         human_object = {'user': username, 'total_damage': None, 'enemy_damage': None}
         if username == current_room.player_one:
