@@ -33,7 +33,7 @@ class HumanView(CreateAPIView):
             human_statistics['user'] = current_room.player_one
         elif username == current_room.player_two:
             human_statistics['user'] = current_room.player_two
-        serializer = HumanStatisticsSerializer(data=human_statistics)
+        serializer = HumanSerializer(data=human_statistics)
         if serializer.is_valid():
             pass
             # serializer.save()
@@ -43,8 +43,8 @@ class HumanView(CreateAPIView):
         self.human_service.append_room_list(current_room)
         response_data = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
                          'current_enemy_damage': None}
-        human_1 = Human.objects.get(user=current_room.player_one)
-        human_2 = Human.objects.get(user=current_room.player_two)
+        human_1 = Human.objects.filter(user=current_room.player_one).first()
+        human_2 = Human.objects.filter(user=current_room.player_two).first()
         if len(total_score) == 2:
             # response_data = turn(request, total_score)
             print('response data', response_data)
@@ -84,8 +84,8 @@ class HumanView(CreateAPIView):
         human = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
                  'current_enemy_damage': None}
         total_score = self.human_service.process_human_list()
-        human_1 = Human.objects.get(user=current_room.player_one)
-        human_2 = Human.objects.get(user=current_room.player_two)
+        human_1 = Human.objects.filter(user=current_room.player_one).first()
+        human_2 = Human.objects.filter(user=current_room.player_two).first()
         if len(total_score) == 2:
             if username == current_room.player_one:
                 human = player_one_turn(request, total_score, human_1)
@@ -184,16 +184,18 @@ class LoadPageView(APIView):
         data = request.headers
         room_id = data['Data']
         current_room = Room.objects.get(id=room_id)
-        human_1 = Human.objects.get(user=current_room.player_one)
-        human_2 = Human.objects.get(user=current_room.player_two)
+        human_1 = Human.objects.filter(user=current_room.player_one).first()
+        print('fsdfsdfsdf', human_1)
+        human_2 = Human.objects.filter(user=current_room.player_two).first()
         human_object = {'user': username, 'total_damage': None, 'enemy_damage': None}
-        if username == 1:
+        if username == current_room.player_one:
             human_object['total_damage'] = human_1.total_damage
             human_object['enemy_damage'] = human_1.enemy_damage
         else:
             human_object['total_damage'] = human_2.total_damage
             human_object['enemy_damage'] = human_2.enemy_damage
-        serializer = HumanStatisticsSerializer(data=human_object)
+        print('human object', human_object)
+        serializer = HumanSerializer(data=human_object)
         if serializer.is_valid():
             pass
         return Response(serializer.data)

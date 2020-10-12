@@ -14,11 +14,11 @@ class Human(models.Model):
     leftLeg = models.BooleanField(default=False)
     rightLeg = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    isAttack = models.BooleanField(default=False)
-    total_damage = models.IntegerField(default=None)
-    enemy_damage = models.IntegerField(default=None)
-    current_damage = models.IntegerField(default=None)
-    current_enemy_damage = models.IntegerField(default=None)
+    isAttack = models.BooleanField(default=False, null=True, blank=True)
+    total_damage = models.IntegerField(default=False)
+    enemy_damage = models.IntegerField(default=False)
+    current_damage = models.IntegerField(default=False)
+    current_enemy_damage = models.IntegerField(default=False)
     roomId = models.IntegerField(default=None, blank=True, null=True)
 
 
