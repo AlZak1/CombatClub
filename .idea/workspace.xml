@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602490673172</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="new commit">
+      <created>1602490850688</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1602490850688</updated>
+    </task>
+    <task id="LOCAL-00020" summary="new commit">
+      <created>1602490864376</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1602490864376</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,10 +203,10 @@
       <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.973@0.23.1680.973" timestamp="1602338777654" />
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602490850569">
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602490864263">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602490850569" />
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602490864263" />
     <state x="642" y="243" key="RollbackChangesDialog" timestamp="1602243778289">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -199,10 +215,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="510" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601041499979" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602490699912">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602490873298">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602490699912" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602490873298" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
       <screen x="0" y="23" width="1680" height="980" />
     </state>
