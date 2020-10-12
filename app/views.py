@@ -1,7 +1,3 @@
-from time import timezone
-
-from django.shortcuts import render
-from rest_framework.permissions import IsAuthenticated
 from .services import HumanService
 
 from rest_framework.generics import CreateAPIView
@@ -10,7 +6,6 @@ from rest_framework.views import APIView
 
 from .models import Human, Room
 from .serializers import HumanSerializer, RoomsSerializer
-import datetime
 
 
 # Create your views here.
@@ -39,35 +34,16 @@ class HumanView(CreateAPIView):
             # serializer.save()
         self.human_service.append_human_list(human)
         total_score = self.human_service.process_human_list()
-        print('total_score', total_score)
         self.human_service.append_room_list(current_room)
         response_data = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
                          'current_enemy_damage': None}
-        human_1 = Human.objects.filter(user=current_room.player_one).first()
-        human_2 = Human.objects.filter(user=current_room.player_two).first()
+        human_1 = Human.objects.filter(user=current_room.player_one).latest('id')
+        human_2 = Human.objects.filter(user=current_room.player_two).latest('id')
         if len(total_score) == 2:
-            # response_data = turn(request, total_score)
-            print('response data', response_data)
             if username == current_room.player_one:
                 response_data = player_one_turn(request, total_score, human_1)
-                # response_data['total_damage'] = total_score['damage1'] + human_1.total_damage
-                # response_data['enemy_damage'] = total_score['damage2'] + human_1.enemy_damage
-                # response_data['current_damage'] = total_score['damage1']
-                # response_data['current_enemy_damage'] = total_score['damage2']
-                # human_1.total_damage = response_data['total_damage']
-                # human_1.save()
-                # human_1.enemy_damage = response_data['enemy_damage']
-                # human_1.save()
             else:
                 response_data = player_two_turn(request, total_score, human_2)
-                # response_data['total_damage'] = total_score['damage2'] + human_2.total_damage
-                # response_data['enemy_damage'] = total_score['damage1'] + human_2.enemy_damage
-                # response_data['current_damage'] = total_score['damage2']
-                # response_data['current_enemy_damage'] = total_score['damage1']
-                # human_2.total_damage = response_data['total_damage']
-                # human_2.save()
-                # human_2.enemy_damage = response_data['enemy_damage']
-                # human_2.save()
         print('Данные отсылаемые клиенту по POST:', response_data)
         serializer = HumanSerializer(data=response_data)
         if serializer.is_valid():
@@ -80,35 +56,16 @@ class HumanView(CreateAPIView):
         data = request.headers
         room_id = data['Data']
         current_room = Room.objects.get(id=room_id)
-        print('id data', room_id)
         human = {'user': username, 'total_damage': None, 'enemy_damage': None, 'current_damage': None,
                  'current_enemy_damage': None}
         total_score = self.human_service.process_human_list()
-        human_1 = Human.objects.filter(user=current_room.player_one).first()
-        human_2 = Human.objects.filter(user=current_room.player_two).first()
+        human_1 = Human.objects.filter(user=current_room.player_one).latest('id')
+        human_2 = Human.objects.filter(user=current_room.player_two).latest('id')
         if len(total_score) == 2:
             if username == current_room.player_one:
                 human = player_one_turn(request, total_score, human_1)
-                # human['total_damage'] = total_score['damage1'] + human_1.total_damage
-                # human['enemy_damage'] = total_score['damage2'] + human_1.enemy_damage
-                # human['current_damage'] = total_score['damage1']
-                # human['current_enemy_damage'] = total_score['damage2']
-                # human_1.total_damage = human['total_damage']
-                # human_1.save()
-                # human_1.enemy_damage = human['enemy_damage']
-                # human_1.save()
             else:
                 human = player_two_turn(request, total_score, human_2)
-                # human['total_damage'] = total_score['damage2'] + human_2.total_damage
-                # human['enemy_damage'] = total_score['damage1'] + human_2.enemy_damage
-                # human['current_damage'] = total_score['damage2']
-                # human['current_enemy_damage'] = total_score['damage1']
-                # human_2.total_damage = human['total_damage']
-                # human_2.save()
-                # human_2.enemy_damage = human['enemy_damage']
-                # human_2.save()
-        print('edfsd', total_score)
-
         print('Данные отсылаемые клиенту по GET:', human)
         serializer = HumanSerializer(data=human)
         if serializer.is_valid():
@@ -184,8 +141,8 @@ class LoadPageView(APIView):
         data = request.headers
         room_id = data['Data']
         current_room = Room.objects.get(id=room_id)
-        human_1 = Human.objects.filter(user=current_room.player_one).first()
-        human_2 = Human.objects.filter(user=current_room.player_two).first()
+        human_1 = Human.objects.filter(user=current_room.player_one).latest('id')
+        human_2 = Human.objects.filter(user=current_room.player_two).latest('id')
         human_object = {'user': username, 'total_damage': None, 'enemy_damage': None}
         if username == current_room.player_one:
             human_object['total_damage'] = human_1.total_damage
