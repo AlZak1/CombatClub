@@ -1,5 +1,6 @@
 from time import timezone
 
+from django.shortcuts import render
 from rest_framework.permissions import IsAuthenticated
 from .services import HumanService
 
@@ -28,7 +29,10 @@ class HumanView(CreateAPIView):
         current_room = Room.objects.get(id=room_id)
         human["user"] = username
         human_statistics = request.data
-        human_statistics['user'] = username
+        if username == current_room.player_one:
+            human_statistics['user'] = current_room.player_one
+        elif username == current_room.player_two:
+            human_statistics['user'] = current_room.player_two
         serializer = HumanStatisticsSerializer(data=human_statistics)
         if serializer.is_valid():
             pass
@@ -153,31 +157,20 @@ class HumanStatisticsView(CreateAPIView):
     def post(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         data_to_filter = request.data
-        if data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is None and data_to_filter[
-            'toDate'] is None:
+        if data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.all()
-        elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is None and data_to_filter[
-            'toDate'] is None:
+        elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.filter(isAttack=False)
-        elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is None and data_to_filter[
-            'toDate'] is None:
+        elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is None and data_to_filter['toDate'] is None:
             queryset = HumanStatistics.objects.filter(isAttack=True)
-        elif data_to_filter['isAttack'] is None and data_to_filter['fromDate'] is not None and data_to_filter[
-            'toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(
-                date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
-        elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is not None and data_to_filter[
-            'toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(isAttack=True, date_without_time__range=(
-            data_to_filter['fromDate'], data_to_filter['toDate']))
-        elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is not None and data_to_filter[
-            'toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(isAttack=False, date_without_time__range=(
-            data_to_filter['fromDate'], data_to_filter['toDate']))
-        elif data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is not None and data_to_filter[
-            'toDate'] is not None:
-            queryset = HumanStatistics.objects.filter(
-                date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        elif data_to_filter['isAttack'] is None and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        elif data_to_filter['isAttack'] == 'attack' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(isAttack=True, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        elif data_to_filter['isAttack'] == 'defense' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(isAttack=False, date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
+        elif data_to_filter['isAttack'] == 'all' and data_to_filter['fromDate'] is not None and data_to_filter['toDate'] is not None:
+            queryset = HumanStatistics.objects.filter(date_without_time__range=(data_to_filter['fromDate'], data_to_filter['toDate']))
         serializer = HumanStatisticsSerializer(queryset, many=True)
 
         return Response(serializer.data)
@@ -188,8 +181,11 @@ class LoadPageView(APIView):
 
     def get(self, request):
         username = request.user.id
-        human_1 = Human.objects.get(user=1)
-        human_2 = Human.objects.get(user=2)
+        data = request.headers
+        room_id = data['Data']
+        current_room = Room.objects.get(id=room_id)
+        human_1 = Human.objects.get(user=current_room.player_one)
+        human_2 = Human.objects.get(user=current_room.player_two)
         human_object = {'user': username, 'total_damage': None, 'enemy_damage': None}
         if username == 1:
             human_object['total_damage'] = human_1.total_damage
@@ -197,7 +193,7 @@ class LoadPageView(APIView):
         else:
             human_object['total_damage'] = human_2.total_damage
             human_object['enemy_damage'] = human_2.enemy_damage
-        serializer = HumanSerializer(data=human_object)
+        serializer = HumanStatisticsSerializer(data=human_object)
         if serializer.is_valid():
             pass
         return Response(serializer.data)
