@@ -25,16 +25,16 @@ class HumanService:
         if len(self.human_list) >= 4:
             room = self.room_list[0]
             for i in self.human_list:
-                if i['isAttack'] is True and i['user'] == room.player_one:
+                if i['isAttack'] is True and i['user'] == room.user_1.id:
                     for k in i.values():
                         user1_attack.append(k)
-                elif i['isAttack'] is False and i['user'] == room.player_two:
+                elif i['isAttack'] is False and i['user'] == room.user_2.id:
                     for k in i.values():
                         user2_defense.append(k)
-                elif i['isAttack'] is True and i['user'] == room.player_two:
+                elif i['isAttack'] is True and i['user'] == room.user_2.id:
                     for k in i.values():
                         user2_attack.append(k)
-                elif i['isAttack'] is False and i['user'] == room.player_one:
+                elif i['isAttack'] is False and i['user'] == room.user_1.id:
                     for k in i.values():
                         user1_defense.append(k)
 

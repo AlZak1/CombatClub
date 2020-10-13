@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="" />
+    <list default="true" id="18ecd0ea-dbe7-4202-b87a-9944bc3f607d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602513793540</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="new commit">
+      <created>1602514267732</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1602514267732</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,26 +236,27 @@
     <option name="LAST_COMMIT_MESSAGE" value="new commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602338777654">
-      <screen x="0" y="23" width="1680" height="973" />
-    </state>
-    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.973@0.23.1680.973" timestamp="1602338777654" />
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602513793388">
+    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602591058367">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602513793388" />
+    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1602591058367" />
+    <state x="543" y="316" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.973@0.23.1680.973" timestamp="1602338777654" />
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2" timestamp="1602514267614">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="464" y="127" width="752" height="548" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1602514267614" />
     <state x="642" y="243" key="RollbackChangesDialog" timestamp="1602243778289">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="642" y="243" key="RollbackChangesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602243778289" />
-    <state x="510" y="242" key="SettingsEditor" timestamp="1601041499979">
+    <state x="510" y="242" key="SettingsEditor" timestamp="1602577932938">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="510" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1601041499979" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602513796803">
+    <state x="510" y="242" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1602577932938" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1602514271185">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602513796803" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1602514271185" />
     <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600355588008">
       <screen x="0" y="23" width="1680" height="980" />
     </state>
@@ -258,5 +272,15 @@
     </state>
     <state x="505" y="231" width="670" height="730" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602505828765" />
     <state x="505" y="237" width="670" height="676" key="search.everywhere.popup/0.23.1680.973@0.23.1680.973" timestamp="1602348835314" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/services.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

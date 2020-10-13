@@ -27,5 +27,6 @@ class Human(models.Model):
 class Room(models.Model):
     player_one = models.IntegerField(null=True, blank=True)
     player_two = models.IntegerField(null=True, blank=True)
-
+    user_1 = models.ForeignKey(User, related_name='user1', on_delete=models.CASCADE, blank=True, null=True)
+    user_2 = models.ForeignKey(User, related_name='user2', on_delete=models.CASCADE, blank=True, null=True)
 
